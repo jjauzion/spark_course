@@ -9,7 +9,7 @@ def clean_word(word):
 conf = SparkConf().setMaster("local").setAppName("WordCount")
 sc = SparkContext(conf = conf)
 
-input = sc.textFile("file:///Users/JJAUZION/Documents/dev/SparkCourse/book.txt")
+input = sc.textFile("file:///Users/JJAUZION/Documents/dev/SparkCourse/data/book.txt")
 words = input.flatMap(lambda x: x.split())
 words = words.map(clean_word)
 wordCounts = words.countByValue()
